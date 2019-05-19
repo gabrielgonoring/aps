@@ -1,0 +1,38 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+        http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+    version="2.0">
+
+    <!-- unidade de persistencia com o nome financas -->
+    <persistence-unit name="aps">
+
+        <!-- Implementação do JPA, no nosso caso Hibernate -->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+ 
+
+        <!-- Aqui são listadas todas as entidades -->
+        <class>br.com.aps.unip.model.FormaPagamento</class>
+        <class>br.com.aps.unip.model.Empregado</class>
+        <class>br.com.aps.unip.model.FuncaoEmpregado</class>
+		<class>br.com.aps.unip.model.TipoProduto</class>
+		<class>br.com.aps.unip.model.Produto</class>
+		<class>br.com.aps.unip.model.Caixa</class>
+		<class>br.com.aps.unip.model.Compra</class>
+		<class>br.com.aps.unip.model.ItemCompra</class>
+		
+       <properties>
+			 <!--  Propriedades JDBC  -->
+			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/aps"/>
+			<property name="javax.persistence.jdbc.user" value="postgres"/>
+			<property name="javax.persistence.jdbc.password" value="1"/>
+			 <!--  Configurações específicas do Hibernate  -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+			<property name="hibernate.hbm2ddl.auto" value="update"/>
+			<property name="hibernate.show_sql" value="true"/>
+			<property name="hibernate.format_sql" value="true"/>
+		</properties>
+		
+    </persistence-unit>
+</persistence>
